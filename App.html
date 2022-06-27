@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
+
+    <script src="App.js"></script>
+    <link rel="stylesheet" href="App.css">
+    
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+            
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+
+        </script>
+</head>
+<body>
+    <div id="informationregistrationlist">
+    <h1>Information Registration List</h1>
+    <hr><br>
+    <table class="table">
+        <!--display the list of house registration-->
+        <thead>
+            <tr>
+                <th scope="col">Information Number</th>
+                <th scope="col">Customer Name</th>
+            </tr>
+        </thead>
+        <tbody id="informationListResults">
+
+        </tbody>
+    </table>
+    <br>
+    <span id="message"></span>
+    <hr />
+    </div>
+    <!-- Tab Links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity (event, 'informationregistration')" id="defaultOpen">Register New Information</button>
+        <button class="tablinks" onclick="openCity (event, 'transferinformation')">Transfer Information</button>
+        <button class="tablinks" onclick="openCity (event, 'checkbalance')">Check Balance</button>
+    </div>
+    <!--display message-->
+    <div id="informationregistration" class="tabcontent">
+        <h2 class="text-center">Register New Information</h2>
+        <div class="input-group">
+            <h3>Information Number</h3>
+            <input type="number" id="newInformationNo" placeholder="Enter new information number..."/>
+        </div>
+        <div class="input-group">
+            <h3>Customer</h3>
+            <input type="text" id="newCustomer" placeholder="Enter new customer name..."/>
+        </div>
+        <div class="input-group">
+            <h3>Wallet Address</h3>
+            <input type="text" id="newAddress" placeholder="Enter new customer's wallet address...">
+        </div>
+        <div>
+            <h3>Amount Payable</h3>
+            <input type="text" id="newAmount" placeholder="Enter amount payable...">
+        </div>
+        <div class="input-group">
+            <br/>
+            <button class="btn" id="button-register">Register</button>
+        </div>
+    </div>
+
+    <div id="transferinformation" class="tabcontent">
+        <h2 class="text-center">Transfer Information</h2>
+        <div class="input-group">
+            <h3>Information Number</h3>
+            <input type="number" id="txfInformationNo" placeholder="Enter Information number...">
+        </div>
+        <div class="input-group">
+            <h3>Customer</h3>
+            <input type="text" id="txfCustomer" placeholder="Enter new Customer Name...">
+        </div>
+        <div class="input-group">
+            <h3>Wallet Address</h3>
+            <input type="text" id="txfAddress" placeholder="Enter new Customer's wallet address...">
+        </div>
+        <div class="input-group">
+            <h3>Amount Payable</h3>
+            <input type="text" id="txfAmount" placeholder="Enter amount payable...">
+        </div>
+        <div class= "input-group">
+        </br>
+            <button class="btn" id="button-transfer">Transfer</button>
+        </div>
+    </div>
+
+    <div id="checkbalance" class="tabcontent">
+        <h2>Check Wallet Balance</h2>
+        <div class="input-group">
+            <h3>Wallet Address</h3>
+            <input type="text" id="walletAddress" placeholder="Enter wallet address...">
+        </div>
+        <div class="input-group">
+            </br>
+            <button class="btn" id="button-balance">Check Balance</button>
+        </div>
+        <br/>
+        <span id="showbalance"></span>
+    </div>
+    </body>
+</html>
+</div>
+</body>
+</html>
